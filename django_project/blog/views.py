@@ -35,7 +35,7 @@ def referers(request):
 def mailuser(request, mail):
     send_mail(
         'ReferUp: You have a new referral!',
-        'User has requested you to refer to your company',
+        'Hola Amigo,\n\nUser has requested you to refer to your company.\n\n\nRegards,\nTeam ReferUp',
         'cboggaram@scu.edu',
         [mail],
     )
