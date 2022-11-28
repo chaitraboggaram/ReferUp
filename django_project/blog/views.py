@@ -35,27 +35,20 @@ def referers(request):
         return render(request,'login1.html') 
 
 def mailuser(request, mail):
-    # print("\n\n\n")
-    # c = confirm("Do you wish to continue?")
-    # print(c)
-    # print("\n\n\n")
     root = tkinter.Tk()
     root.withdraw()
-
+    useremail = request.user.email
+    first_name = request.user.first_name
+    last_name = request.user.last_name
     send_mail(
-        'ReferUp: You have a new referral!',
-        'Hola Amigo,\n\nUser has requested you to refer to your company.\n\n\nRegards,\nTeam ReferUp',
+        'ReferUp: You have a new referral request!',
+        'Hola Amigo,\n\n' + last_name + ' has requested for referral in your workplace through the ReferUp portal.\n\nStudent Name: ' + first_name + ' ' + last_name + '\nEmail Address: ' + useremail + '\n\nKindly maintain the confidentiality of the student details.\n\n\nRegards,\nTeam ReferUp',
         'cboggaram@scu.edu',
         [mail],
     )
-    # alert("Your request for referral has been sent to the referrer")
-    messagebox.showinfo("Alert", "Your request for referral has been sent to the referrer")
+    messagebox.showinfo("Alert", "Your request for referral has been sent to the referrer " + mail)
 
     return referers(request)
-
-    # return render('blog/referers.html')
-    # return render(request,'blog/referers.html')
-    # return render(request, 'blog/mail_sent.html')
 
 def emailsent(request):
     return referers(request)
