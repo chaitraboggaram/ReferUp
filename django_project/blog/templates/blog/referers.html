@@ -19,7 +19,7 @@
     {% load bootstrap5%}
     {% bootstrap_css %}
     {% load crispy_forms_tags %}
-    {%load account%}
+    {% load account %}
     {% csrf_token %}
     <link href="../../static/referers.css" rel="stylesheet">
 
@@ -86,7 +86,7 @@ working at various companies also are keen on referring people as they are incen
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text text-center">{{i.username}}</p>
+                  <p class="card-text text-center">{{i.firstName}}</p>
                   <p class="card-text text-center">{{i.lastName}}</p>
                   <p class="card-text text-center">{{i.username}}</p>
                   <p class="card-text text-center">{{i.email}}</p>
