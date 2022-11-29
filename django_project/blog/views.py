@@ -42,7 +42,7 @@ def mailuser(request, mail):
     last_name = request.user.last_name
     send_mail(
         'ReferUp: You have a new referral request!',
-        'Hola Amigo,\n\n' + first_name + ' has requested for referral in your workplace through the ReferUp portal.\n\nFirst Name: ' + first_name + '\nLast Name: ' + last_name + '\nEmail Address: ' + useremail + '\n\nKindly maintain the confidentiality of the student details.\n\n\nRegards,\nTeam ReferUp',
+        'Hola Amigo,\n\n' + first_name + ' ' + last_name + ' has requested for a referral at your workplace through the ReferUp portal.\n\nFirst Name: ' + first_name + '\nLast Name: ' + last_name + '\nEmail Address: ' + useremail + '\n\n\nRegards,\nTeam ReferUp',
         'cboggaram@scu.edu',
         [mail],
     )
