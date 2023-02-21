@@ -1,0 +1,35 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="loginContent">
+  <section>
+    <h1 id="signin">Sign In</h1> 
+
+  {% get_providers as socialaccount_providers %}
+  
+  {% if socialaccount_providers %}
+  <p>{% blocktrans with site.name as site_name %} Don't worry, your data is protected.  {% endblocktrans %}</p>
+  
+  <div class="socialaccount_ballot">
+  
+    <ul class="socialaccount_providers btn btn-primary" id="socialProviders">
+      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
+  </div>
+  
+  {% include "socialaccount/snippets/login_extra.html" %}
+  
+  {% else %}
+  <p>{% blocktrans %}If you have not created an account yet, then please
+  <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+  {% endif %}
+
+  </section>
+  
+</div>
+{% endblock %}
